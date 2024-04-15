@@ -1,0 +1,302 @@
+/*CSS Reset / Normalize*/
+/* Hemos disponibilizado el básico de reset de estilos. Si quieren, añadan más informaciones 
+en las secciones señaladas */
+/*Já deixaremos o básico de reset de estilos. Caso queira adicionar mais informações
+coloque nas sessões indicadas*/
+
+:root {
+    --cor-de-fundo: #f5f5f5;
+    --cor-de-link: #000;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: var(--cor-de-fundo);
+    font-family: "Raleway";
+    margin: 0;
+    padding: 0;
+    /* line-height: 1; */
+    height: 100vh;
+}
+ol,
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor-de-link);
+}
+
+
+/*Enlace de la documentación oficial!
+https://en.bem.info/methodology/quick-start/*/
+
+.skills__title,
+.hobbies__title,
+.experience__section__title,
+.academic__title {
+    text-align: center;
+}
+
+/*Sección Menu*/
+section.menu {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu__list {
+    display: none;
+}
+
+/*Sección Title*/
+
+.title__div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 35px 0;
+}
+
+.title__profile {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+
+.title__bio {
+    font-size: 22px;
+    line-height: 1.2;
+}
+.title__subsection {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.title__network__item a {
+    /* display: flex; */
+    gap: 10px;
+}
+
+/*Sección About*/
+section.about {
+    background: #eaf2fd;
+    padding: 25px 0;
+}
+
+.about__paragraph {
+    line-height: 1.4;
+}
+
+/* section skills */
+.skills {
+    padding: 30px 0;
+}
+.skills__line {
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skills__box {
+    flex-grow: 1;
+    width: 140px;
+    background-color: white;
+}
+
+/* Experiencia Académica*/
+section.academic {
+    background: #eaf2fd;
+    padding: 30px 0;
+}
+
+.academic__courses {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+.academic__courses__box {
+    display: flex;
+}
+.academic__courses__list {
+    flex-grow: 1;
+}
+.academic__courses__item__img img {
+    width: 220px;
+}
+
+/* experiencia*/
+
+.experience__box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.experience__img {
+    width: 100%;
+}
+.experience__info {
+    display: grid;
+    align-self: center;
+    padding: 20px;
+}
+
+.experiencia__botao--repo,
+.experience__botao--demo {
+    padding: 12px 18px;
+    font-size: 16px;
+    border: 1px solid #d9007d;
+}
+
+.experience__botao--demo, .formcontato__botao {
+    color: #fff;
+    background-color: #d9007d;
+}
+
+/*Contacto*/
+.formcontato{
+    background-color: #eaf2fd;
+}
+.formcontato__textarea, .formcontato__input{
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+}
+.formcontato__input{
+    padding: 15px 0;
+}
+.formcontato__botao{
+    width: 112px;
+    height: 40px;
+    border: none;
+}
+
+.formcontato--esquerda, .formcontato__img {
+    display: none;
+}
+.formcontato__contacto {
+    display: flex;
+    gap: 20px;
+}
+.formcontato__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/*footeer*/
+section.footer {
+    background-color: #fff;
+    text-align: end;
+    padding: 12px;
+}
+
+
+/*Tablet*/
+@media (min-width: 768px) {
+    /* Menú */
+    section.menu {
+        display: flex;
+        align-items: center;
+    }
+    .menu__list__item__contato {
+        display: none;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .menu__list {
+        display: flex;
+        gap: 20px;
+    }
+
+    /*title*/
+
+    .title__div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .title__profile {
+        order: 2;
+    }
+
+    /*Skills*/
+
+    /*Formación Académica*/
+
+    .academic__courses__box {
+        width: 296px;
+    }
+
+    .academic__courses {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    /*Experiencia Profesional*/
+
+    .experience__box:nth-of-type(2) {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .experience__box:nth-of-type(2) .experience__info {
+        order: 1;
+    }
+
+    .experience__box:nth-of-type(2) .experience__img {
+        order: 0;
+    }
+    .experience__box {
+        display: flex;
+        flex-direction: row;
+    }
+    .experience__img {
+        width: 700px;
+    }
+
+    /* Contacto */
+
+    .formcontato--esquerda, .formcontato__img {
+        display: block;
+        width: 464px;
+    }
+}
+
+
+/*Mobile*/
+@media (min-width: 425px) {
+    /*Menu*/
+
+    /*Titulo*/
+
+    /*Sección sobre mi*/
+
+    /*Skills*/
+
+    /*Hobbies*/
+
+    /*Formación Académica*/
+
+    /*Experiencia Profesional*/
+
+    /*Contacto*/
+
+    /*Footer*/
+}
