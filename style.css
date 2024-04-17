@@ -1,21 +1,19 @@
-/*CSS Reset / Normalize*/
-/* Hemos disponibilizado el básico de reset de estilos. Si quieren, añadan más informaciones 
-en las secciones señaladas */
-/*Já deixaremos o básico de reset de estilos. Caso queira adicionar mais informações
-coloque nas sessões indicadas*/
-
 :root {
     --cor-de-fundo: #f5f5f5;
     --cor-de-link: #000;
 }
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     box-sizing: border-box;
     background-color: var(--cor-de-fundo);
     font-family: "Raleway";
     margin: 0;
     padding: 0;
-    /* line-height: 1; */
+    line-height: 1;
     height: 100vh;
 }
 ol,
@@ -29,9 +27,16 @@ a {
     color: var(--cor-de-link);
 }
 
-
-/*Enlace de la documentación oficial!
-https://en.bem.info/methodology/quick-start/*/
+.tudo {
+    width: 100%;
+    max-width: 2500px;
+    margin: 0 auto;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1100px;
+}
 
 .skills__title,
 .hobbies__title,
@@ -59,10 +64,11 @@ section.menu {
 }
 
 /*Sección Title*/
-
 .title__div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 16px;
     padding: 35px 0;
 }
@@ -72,7 +78,6 @@ section.menu {
     height: 250px;
     border-radius: 50%;
 }
-
 
 .title__bio {
     font-size: 22px;
@@ -84,7 +89,6 @@ section.menu {
 }
 
 .title__network__item a {
-    /* display: flex; */
     gap: 10px;
 }
 
@@ -105,14 +109,18 @@ section.about {
 .skills__line {
     padding: 20px 0;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
 }
 
 .skills__box {
-    flex-grow: 1;
-    width: 140px;
+    display: flex;
+    width: 158px;
     background-color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 /* Experiencia Académica*/
@@ -130,23 +138,26 @@ section.academic {
 .academic__courses__box {
     display: flex;
 }
-.academic__courses__list {
-    flex-grow: 1;
-}
+
 .academic__courses__item__img img {
-    width: 220px;
+    width: 100%;
 }
 
 /* experiencia*/
+.experience {
+    padding: 40px 0;
+}
 
 .experience__box {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 40px;
 }
 
 .experience__img {
     width: 100%;
+    max-width: 533px;
 }
 .experience__info {
     display: grid;
@@ -161,42 +172,73 @@ section.academic {
     border: 1px solid #d9007d;
 }
 
-.experience__botao--demo, .formcontato__botao {
+.experience__botao--demo,
+.formcontato__botao {
     color: #fff;
+    padding: 15px;
     background-color: #d9007d;
 }
 
-/*Contacto*/
-.formcontato{
-    background-color: #eaf2fd;
-}
-.formcontato__textarea, .formcontato__input{
-    width: 100%;
-    border: none;
-    outline: none;
-    resize: none;
-}
-.formcontato__input{
-    padding: 15px 0;
-}
-.formcontato__botao{
-    width: 112px;
-    height: 40px;
-    border: none;
+.formcontato__botao.active {
+    background-color: #eea1ced2;
+    cursor: not-allowed;
 }
 
-.formcontato--esquerda, .formcontato__img {
+/*Contacto*/
+.formcontato {
+    background-color: #eaf2fd;
+    padding: 25px 0 35px;
+}
+
+.formcontato--esquerda,
+.formcontato__text {
+    flex: 1 1 150px;
+}
+.formcontato__form{
+    background-color: pink;
+    display: grid;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.formcontato__input, .formcontato__textarea{
+    padding: 10px 7px;
+    width: 100%;
+    outline: none;
+    border: 1px solid transparent;
+}
+.formcontato__img {
+    width: 280px; 
     display: none;
 }
-.formcontato__contacto {
-    display: flex;
-    gap: 20px;
+
+
+/*Estilo mensajes----------*/
+.error__text {
+    color: red;
+    margin-top: 5px;
+    font-size: 15px;
+    visibility: hidden;
 }
-.formcontato__form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+
+/* mensajes errores y exito activar con js */
+.activeError .error__text{
+    visibility: visible;
 }
+
+.activeError .formcontato__input{
+    border: 1px solid red;
+    background-image: url('./assets/errorSmall.png');
+    background-repeat: no-repeat;
+    background-position: right 2vw bottom 1vh;
+}
+.activeSucces .formcontato__input{
+    border: 1px solid rgb(46, 166, 46);
+    background-image: url('./assets/checkSmall.png');
+    background-repeat: no-repeat;
+    background-position: right 2vw bottom 1vh;
+}
+
 /*footeer*/
 section.footer {
     background-color: #fff;
@@ -204,10 +246,8 @@ section.footer {
     padding: 12px;
 }
 
-
 /*Tablet*/
 @media (min-width: 768px) {
-    /* Menú */
     section.menu {
         display: flex;
         align-items: center;
@@ -226,7 +266,6 @@ section.footer {
     }
 
     /*title*/
-
     .title__div {
         display: flex;
         flex-direction: row;
@@ -236,10 +275,6 @@ section.footer {
         order: 2;
     }
 
-    /*Skills*/
-
-    /*Formación Académica*/
-
     .academic__courses__box {
         width: 296px;
     }
@@ -248,9 +283,20 @@ section.footer {
         flex-direction: row;
         gap: 40px;
     }
-
     /*Experiencia Profesional*/
+    .experience {
+        padding: 40px 0 60px;
+    }
+    
+}
 
+
+
+/*Mobile*/
+@media (min-width: 1024px) {
+    .experience__box {
+        flex-direction: row;
+    }
     .experience__box:nth-of-type(2) {
         display: flex;
         flex-direction: row-reverse;
@@ -263,40 +309,21 @@ section.footer {
     .experience__box:nth-of-type(2) .experience__img {
         order: 0;
     }
-    .experience__box {
-        display: flex;
-        flex-direction: row;
-    }
-    .experience__img {
-        width: 700px;
-    }
-
-    /* Contacto */
-
-    .formcontato--esquerda, .formcontato__img {
-        display: block;
-        width: 464px;
-    }
-}
-
-
-/*Mobile*/
-@media (min-width: 425px) {
-    /*Menu*/
-
-    /*Titulo*/
-
-    /*Sección sobre mi*/
-
-    /*Skills*/
-
-    /*Hobbies*/
-
-    /*Formación Académica*/
-
-    /*Experiencia Profesional*/
 
     /*Contacto*/
+    .formcontato__contacto {
+        display: flex;
+    }
+    
+    .formcontato--esquerda{
+        border: 1px solid black;
+        flex: 0 1 400px;
+       display: grid;
+       place-items: center;
+    }
+    .formcontato__img {
+        display: block;
 
-    /*Footer*/
+    }
+
 }
