@@ -1,3 +1,4 @@
+const form = document.querySelector(".formcontato__form");
 const inputName = document.querySelector("#input-name");
 const inputEmail = document.querySelector("#input-email");
 const inputMessage = document.querySelector("#mensagem");
@@ -20,6 +21,14 @@ function events() {
     inputMessage.addEventListener("blur", (e) =>
         validateEmpyField(e, "Porfavor, complete el campo")
     );
+
+    form.addEventListener("submit", (e) => {
+        if (isValidForm() === true) {
+            console.log("cargando y enviando");
+        } else {
+            e.preventDefault();
+        }
+    });
 }
 
 function initialApp() {
@@ -64,7 +73,7 @@ function validateEmpyField(e, errorMessage) {
         if (fieldDivValue.length <= 300) {
             console.log("correcto");
             setSucces(fielDiv);
-            // fieldCompleto();
+            fieldCompleto();
         } else {
             setError(fielDiv, "Máximo 300 carácteres");
         }
@@ -95,4 +104,16 @@ function setSucces(inputDiv) {
 function fieldCompleto() {
     btnSend.disabled = false;
     btnSend.classList.remove("active");
+}
+
+//Formulario válido
+function isValidForm() {
+    const groupInputs = form.querySelectorAll(".groupInput");
+    let result = true;
+    groupInputs.forEach((element) => {
+        if (element.classList.contains("activeError")) {
+            result = false;
+        }
+    });
+    return result;
 }

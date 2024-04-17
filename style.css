@@ -1,12 +1,23 @@
 :root {
+    /* Colores */
     --cor-de-fundo: #f5f5f5;
     --cor-de-link: #000;
+    --cor-de-menu: #fff;
+    --cor-de-box: #eaf2fd;
+    --cor-de-boton: #d9007d;
+    --cor-de-exito: rgb(46, 166, 46);
+    --cor-de-error: red;
+
+    /* tipografia*/
+    --font-raleway: "Raleway";
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     box-sizing: border-box;
     background-color: var(--cor-de-fundo);
@@ -16,6 +27,7 @@ body {
     line-height: 1;
     height: 100vh;
 }
+
 ol,
 ul,
 li {
@@ -32,6 +44,7 @@ a {
     max-width: 2500px;
     margin: 0 auto;
 }
+
 .container {
     width: 90%;
     margin: 0 auto;
@@ -47,10 +60,11 @@ a {
 
 /*Sección Menu*/
 section.menu {
-    background-color: #f5f5f5;
+    background-color: var(--cor-de-fundo);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px 0;
 }
 
 .menu__header {
@@ -81,11 +95,27 @@ section.menu {
 
 .title__bio {
     font-size: 22px;
-    line-height: 1.2;
+    line-height: 1.3;
+    padding-bottom: 15px;
+    letter-spacing: 0.5px;
 }
+
 .title__subsection {
     font-size: 16px;
     font-weight: 300;
+}
+
+.title__network {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.link {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .title__network__item a {
@@ -94,18 +124,20 @@ section.menu {
 
 /*Sección About*/
 section.about {
-    background: #eaf2fd;
+    background: var(--cor-de-seccion);
     padding: 25px 0;
 }
 
 .about__paragraph {
     line-height: 1.4;
+    padding-top: 15px;
 }
 
 /* section skills */
 .skills {
     padding: 30px 0;
 }
+
 .skills__line {
     padding: 20px 0;
     display: flex;
@@ -117,7 +149,7 @@ section.about {
 .skills__box {
     display: flex;
     width: 158px;
-    background-color: white;
+    background-color: var(--cor-de-box);
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -125,22 +157,25 @@ section.about {
 
 /* Experiencia Académica*/
 section.academic {
-    background: #eaf2fd;
+    background: var(--cor-de-seccion);
     padding: 30px 0;
 }
 
 .academic__courses {
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    gap: 20px;
 }
+
 .academic__courses__box {
     display: flex;
 }
 
 .academic__courses__item__img img {
     width: 100%;
+    height: 130px;
 }
 
 /* experiencia*/
@@ -152,31 +187,43 @@ section.academic {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .experience__img {
     width: 100%;
     max-width: 533px;
 }
+
 .experience__info {
-    display: grid;
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 20px;
+}
+
+.experience__title {
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.experience__text {
+    margin-bottom: 10px;
 }
 
 .experiencia__botao--repo,
 .experience__botao--demo {
     padding: 12px 18px;
     font-size: 16px;
-    border: 1px solid #d9007d;
+    border: 1px solid var(--cor-de-boton);
 }
 
 .experience__botao--demo,
 .formcontato__botao {
-    color: #fff;
-    padding: 15px;
-    background-color: #d9007d;
+    color: var(--cor-de-box);
+    padding: 12px 20px;
+    background-color: var(--cor-de-boton);
 }
 
 .formcontato__botao.active {
@@ -186,62 +233,72 @@ section.academic {
 
 /*Contacto*/
 .formcontato {
-    background-color: #eaf2fd;
+    background-color: var(--cor-de-seccion);
     padding: 25px 0 35px;
+}
+
+.formcontato__title,
+.formcontato__subtext {
+    margin-bottom: 10px;
+}
+
+.formcontato__subtext {
+    line-height: 1.2;
 }
 
 .formcontato--esquerda,
 .formcontato__text {
     flex: 1 1 150px;
 }
-.formcontato__form{
-    background-color: pink;
+
+.formcontato__form {
     display: grid;
     gap: 20px;
     margin: 20px 0;
 }
 
-.formcontato__input, .formcontato__textarea{
+.formcontato__input,
+.formcontato__textarea {
+    resize: none;
     padding: 10px 7px;
     width: 100%;
     outline: none;
     border: 1px solid transparent;
 }
 .formcontato__img {
-    width: 280px; 
+    width: 280px;
     display: none;
 }
 
-
 /*Estilo mensajes----------*/
 .error__text {
-    color: red;
+    color: var(--cor-de-error);
     margin-top: 5px;
     font-size: 15px;
     visibility: hidden;
 }
 
 /* mensajes errores y exito activar con js */
-.activeError .error__text{
+.activeError .error__text {
     visibility: visible;
 }
 
-.activeError .formcontato__input{
-    border: 1px solid red;
-    background-image: url('./assets/errorSmall.png');
+.activeError .formcontato__input {
+    border: 1px solid var(--cor-de-error);
+    background-image: url("./assets/errorSmall.png");
     background-repeat: no-repeat;
     background-position: right 2vw bottom 1vh;
 }
-.activeSucces .formcontato__input{
-    border: 1px solid rgb(46, 166, 46);
-    background-image: url('./assets/checkSmall.png');
+.activeSucces .formcontato__input {
+    border: 1px solid var(--cor-de-exito);
+    background-image: url("./assets/checkSmall.png");
     background-repeat: no-repeat;
     background-position: right 2vw bottom 1vh;
 }
 
 /*footeer*/
 section.footer {
-    background-color: #fff;
+    background-color: var(--cor-de-box);
     text-align: end;
     padding: 12px;
 }
@@ -252,14 +309,17 @@ section.footer {
         display: flex;
         align-items: center;
     }
+
     .menu__list__item__contato {
         display: none;
     }
+
     nav {
         display: flex;
         align-items: center;
         gap: 20px;
     }
+
     .menu__list {
         display: flex;
         gap: 20px;
@@ -269,12 +329,17 @@ section.footer {
     .title__div {
         display: flex;
         flex-direction: row;
+        gap: 55px;
     }
 
     .title__profile {
         order: 2;
     }
 
+    section.about,
+    section.academic {
+        padding: 50px 0;
+    }
     .academic__courses__box {
         width: 296px;
     }
@@ -283,14 +348,12 @@ section.footer {
         flex-direction: row;
         gap: 40px;
     }
+    
     /*Experiencia Profesional*/
     .experience {
         padding: 40px 0 60px;
     }
-    
 }
-
-
 
 /*Mobile*/
 @media (min-width: 1024px) {
@@ -314,16 +377,13 @@ section.footer {
     .formcontato__contacto {
         display: flex;
     }
-    
-    .formcontato--esquerda{
-        border: 1px solid black;
+
+    .formcontato--esquerda {
         flex: 0 1 400px;
-       display: grid;
-       place-items: center;
+        display: grid;
+        place-items: center;
     }
     .formcontato__img {
         display: block;
-
     }
-
 }
